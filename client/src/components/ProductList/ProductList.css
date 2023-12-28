@@ -1,0 +1,18 @@
+/* client/src/components/ProductList/ProductList.css */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    width: 200px;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
