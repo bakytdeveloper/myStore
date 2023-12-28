@@ -2,6 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const config = require('./config/config');
 
 const app = express();
 const PORT = process.env.PORT || 5500;
@@ -18,8 +19,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // Routes
 app.use('/api/products', require('./routes/productRoutes'));
-// app.use('/api/auth', require('./routes/authRoutes'));
-// app.use('/api/orders', require('./routes/orderRoutes'));
+// TODO: Add more routes for authentication and orders
 
 // Server Start
 app.listen(PORT, () => {

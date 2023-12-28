@@ -1,0 +1,49 @@
+/* client/src/components/Header/Header.css */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(17, 15, 15, 0.4);
+    color: #fff;
+}
+
+.logo {
+    font-size: 1.5rem;
+}
+
+.logo a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.contact-info {
+    display: flex;
+    gap: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-item span {
+    font-size: 0.8rem;
+}
+
+.user-actions a {
+    color: #fff;
+    margin-left: 1rem;
+    text-decoration: none;
+}
+
+.search-bar {
+    flex-grow: 1;
+    margin: 0 1rem;
+}
+
+.search-bar input {
+    width: 20%;
+    padding: 0.5rem;
+}
