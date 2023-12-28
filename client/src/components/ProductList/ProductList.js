@@ -2,7 +2,7 @@
 import React from 'react';
 import './ProductList.css';
 
-const ProductList = ({ products }) => {
+const ProductList = ({ products, addToCart }) => {
     return (
         <div className="product-list">
             {products.map(product => (
@@ -11,7 +11,7 @@ const ProductList = ({ products }) => {
                     <h3>{product.name}</h3>
                     <p>{product.description}</p>
                     <p>Price: ${product.price}</p>
-                    <button>Add to Cart</button>
+                    <button onClick={() => addToCart(product)}>Add to Cart</button>
                 </div>
             ))}
         </div>

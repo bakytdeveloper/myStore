@@ -6,13 +6,12 @@ import Home from './components/Home';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import Profile from './components/Profile/Profile';
-import Cart from './components/Cart/Cart';  // Добавлено
+import Cart from './components/Cart/Cart';
 import './App.css';
 
 function App() {
     const [cartItems, setCartItems] = useState([]);
 
-    // Функция для добавления товара в корзину
     const addToCart = (item) => {
         setCartItems((prevItems) => {
             const existingItem = prevItems.find((prevItem) => prevItem.id === item.id);
@@ -31,7 +30,7 @@ function App() {
         <Router>
             <Header />
             <Switch>
-                <Route exact path="/" component={Home} />
+                <Route exact path="/" render={(props) => <Home {...props} addToCart={addToCart} />} />
                 <Route path="/register" component={Register} />
                 <Route path="/login" component={Login} />
                 <Route path="/profile" component={Profile} />
