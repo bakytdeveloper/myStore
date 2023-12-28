@@ -1,7 +1,7 @@
 // client/src/components/Header/Header.js
 import React from 'react';
-import { FaInstagram, FaTelegram, FaWhatsapp, FaPhone, FaUser } from 'react-icons/fa';
-import { AiFillTiktok } from 'react-icons/ai';
+import { FaInstagram, FaTelegram, FaWhatsapp, FaPhone, FaUser, FaShoppingCart } from 'react-icons/fa';
+// import { AiFillTiktok } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
@@ -34,6 +34,9 @@ const Header = () => {
                 <Link to="/login">Log/Reg</Link>
                 <Link to="/profile">
                     <FaUser />
+                </Link>
+                <Link to="/cart">
+                    <FaShoppingCart />
                 </Link>
             </div>
             <div className="search-bar">
