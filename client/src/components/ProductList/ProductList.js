@@ -1,6 +1,7 @@
 // client/src/components/ProductList/ProductList.js
 import React from 'react';
 import ProductCard from "../ProductCard/ProductCard";
+import './ProductList.css';
 
 const ProductList = ({ products, addToCart }) => {
     return (

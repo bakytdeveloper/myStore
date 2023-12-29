@@ -99,13 +99,28 @@ import './App.css';
 function App() {
     const [cartItems, setCartItems] = useState([]);
 
+    // const addToCart = (item) => {
+    //     setCartItems((prevItems) => {
+    //         const existingItem = prevItems.find((prevItem) => prevItem.id === item.id);
+    //
+    //         if (existingItem) {
+    //             return prevItems.map((prevItem) =>
+    //                 prevItem.id === item.id ? { ...prevItem, quantity: prevItem.quantity + 1 } : prevItem
+    //             );
+    //         } else {
+    //             return [...prevItems, { ...item, quantity: 1 }];
+    //         }
+    //     });
+    // };
+
+
     const addToCart = (item) => {
         setCartItems((prevItems) => {
-            const existingItem = prevItems.find((prevItem) => prevItem.id === item.id);
+            const existingItem = prevItems.find((prevItem) => prevItem._id === item._id);
 
             if (existingItem) {
                 return prevItems.map((prevItem) =>
-                    prevItem.id === item.id ? { ...prevItem, quantity: prevItem.quantity + 1 } : prevItem
+                    prevItem._id === item._id ? { ...prevItem, quantity: prevItem.quantity + 1 } : prevItem
                 );
             } else {
                 return [...prevItems, { ...item, quantity: 1 }];
@@ -133,23 +148,23 @@ function App() {
         });
     };
 
-    const products = [
-        {
-            id: 1,
-            name: 'Product 1',
-            description: 'Description for Product 1',
-            price: 19.99,
-            image: 'https://placekitten.com/200/200',
-        },
-        {
-            id: 2,
-            name: 'Product 2',
-            description: 'Description for Product 2',
-            price: 29.99,
-            image: 'https://placekitten.com/201/201',
-        },
-        // Добавьте больше товаров по необходимости
-    ];
+    // const products = [
+    //     {
+    //         id: 1,
+    //         name: 'Product 1',
+    //         description: 'Description for Product 1',
+    //         price: 19.99,
+    //         image: 'https://placekitten.com/200/200',
+    //     },
+    //     {
+    //         id: 2,
+    //         name: 'Product 2',
+    //         description: 'Description for Product 2',
+    //         price: 29.99,
+    //         image: 'https://placekitten.com/201/201',
+    //     },
+    //     // Добавьте больше товаров по необходимости
+    // ];
 
     return (
         <Router>
@@ -172,7 +187,8 @@ function App() {
                     )}
                 </Route>
                 <Route path="/product/:productId">
-                    <ProductDetails products={products} addToCart={addToCart} />
+                    <ProductDetails  addToCart={addToCart} />
+                    {/*<ProductDetails products={products} addToCart={addToCart} />*/}
                 </Route>
                 {/* TODO: Add more routes here */}
             </Switch>
