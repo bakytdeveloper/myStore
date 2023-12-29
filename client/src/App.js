@@ -93,6 +93,7 @@ import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import Profile from './components/Profile/Profile';
 import Cart from './components/Cart/Cart';
+import ProductDetails from './components/ProductDetails/ProductDetails';  // Добавлено
 import './App.css';
 
 function App() {
@@ -132,6 +133,24 @@ function App() {
         });
     };
 
+    const products = [
+        {
+            id: 1,
+            name: 'Product 1',
+            description: 'Description for Product 1',
+            price: 19.99,
+            image: 'https://placekitten.com/200/200',
+        },
+        {
+            id: 2,
+            name: 'Product 2',
+            description: 'Description for Product 2',
+            price: 29.99,
+            image: 'https://placekitten.com/201/201',
+        },
+        // Добавьте больше товаров по необходимости
+    ];
+
     return (
         <Router>
             <Header />
@@ -152,6 +171,9 @@ function App() {
                         />
                     )}
                 </Route>
+                <Route path="/product/:productId">
+                    <ProductDetails products={products} addToCart={addToCart} />
+                </Route>
                 {/* TODO: Add more routes here */}
             </Switch>
         </Router>
@@ -159,6 +181,7 @@ function App() {
 }
 
 export default App;
+
 
 
 

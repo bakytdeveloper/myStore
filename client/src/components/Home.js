@@ -1,25 +1,25 @@
 // client/src/components/Home.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ProductList from './ProductList/ProductList';
 
 const Home = ({ addToCart }) => {
-    const products = [
-        {
-            id: 1,
-            name: 'Product 1',
-            description: 'Description for Product 1',
-            price: 19.99,
-            image: 'https://placekitten.com/200/200', // Заглушка, используйте свои изображения
-        },
-        {
-            id: 2,
-            name: 'Product 2',
-            description: 'Description for Product 2',
-            price: 29.99,
-            image: 'https://placekitten.com/201/201',
-        },
-        // Добавьте больше товаров по необходимости
-    ];
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        // Запрос к API для получения продуктов
+        fetch('http://localhost:5500/api/products')
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log('Data received:', data); // Добавьте эту строку
+                setProducts(data);
+            })
+            .catch((error) => console.error('Error fetching products:', error));
+    }, []);
 
     return (
         <div>

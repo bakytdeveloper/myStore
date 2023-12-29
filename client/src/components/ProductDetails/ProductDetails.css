@@ -1,0 +1,16 @@
+/* client/src/components/ProductDetails/ProductDetails.css */
+.product-details-container {
+    display: flex;
+    gap: 20px;
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.product-details-container img {
+    max-width: 300px;
+    height: auto;
+}
+
+.product-details-container div {
+    flex-grow: 1;
+}

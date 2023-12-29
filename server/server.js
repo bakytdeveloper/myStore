@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const config = require('./config/config');
+const productRoutes = require('./routes/productRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 5500;
@@ -15,11 +16,12 @@ app.use(express.json());
 mongoose.connect('mongodb+srv://bakytdeveloper:my_store@mystore.v7xyrgn.mongodb.net/myStore?retryWrites=true&w=majority');
 
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-// Routes
-app.use('/api/products', require('./routes/productRoutes'));
-// TODO: Add more routes for authentication and orders
+db.on('error', (error) => console.error(error));
+db.once('open', () => console.log('Connected to Database'));
+
+app.use(express.json());
+app.use('/api', productRoutes); // Обработка маршрутов для продуктов
 
 // Server Start
 app.listen(PORT, () => {
