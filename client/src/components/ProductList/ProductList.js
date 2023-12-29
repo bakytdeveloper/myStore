@@ -1,18 +1,19 @@
 // client/src/components/ProductList/ProductList.js
 import React from 'react';
-import './ProductList.css';
+import ProductCard from "../ProductCard/ProductCard";
 
 const ProductList = ({ products, addToCart }) => {
     return (
         <div className="product-list">
-            {products.map(product => (
-                <div key={product.id} className="product-card">
-                    <img src={product.image} alt={product.name} />
-                    <h3>{product.name}</h3>
-                    <p>{product.description}</p>
-                    <p>Price: ${product.price}</p>
-                    <button onClick={() => addToCart(product)}>Add to Cart</button>
-                </div>
+            {products.map((product) => (
+                <ProductCard
+                    key={product._id}
+                    images={product.images}
+                    brand={product.brand}
+                    name={product.name}
+                    price={product.price}
+                    addToCart={() => addToCart(product)}
+                />
             ))}
         </div>
     );

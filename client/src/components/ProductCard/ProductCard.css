@@ -1,0 +1,44 @@
+/* client/src/components/ProductList/ProductCard.css */
+.product-card {
+    border: 1px solid #ddd;
+    /*border-radius: 8px;*/
+    padding: 16px;
+    margin: 16px;
+    max-width: 200px;
+    text-align: center;
+    background-color: rgba(207, 212, 239, 0.2);
+}
+
+.product-card img {
+    max-width: 192px;
+    height: 192px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    object-fit: contain;
+}
+
+.product-card h3 {
+    font-size: 1.2em;
+    margin-bottom: 8px;
+}
+
+.product-card p {
+    margin-bottom: 8px;
+}
+
+.b-button {
+    display: inline-flex;
+}
+
+.product-card button {
+    background-color: #0aab98;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    /*border-radius: 4px;*/
+    cursor: pointer;
+}
+
+.product-card button:hover {
+    background-color: #0056b3;
+}
