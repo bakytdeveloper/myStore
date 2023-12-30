@@ -18,7 +18,7 @@ mongoose.connect('mongodb+srv://bakytdeveloper:my_store@mystore.v7xyrgn.mongodb.
 const db = mongoose.connection;
 
 db.on('error', (error) => console.error(error));
-db.once('open', () => console.log('Connected to Database'));
+db.once('open', () => console.log('И ПОДКЛЮЧЕНН К БАЗЕ ДАННЫХ !!!'));
 
 app.use(express.json());
 app.use('/api', productRoutes); // Обработка маршрутов для продуктов
