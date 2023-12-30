@@ -47,3 +47,8 @@ const ProductCard = ({ brand, name, price, images, addToCart }) => {
 };
 
 export default ProductCard;
+
+
+
+
+

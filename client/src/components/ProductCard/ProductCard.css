@@ -10,8 +10,8 @@
 }
 
 .product-card img {
-    max-width: 192px;
-    height: 192px;
+    max-width: 192px!important;
+    height: 192px!important;
     border-radius: 4px;
     margin-bottom: 8px;
     object-fit: contain;

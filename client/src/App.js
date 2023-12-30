@@ -85,7 +85,7 @@
 
 
 // client/src/App.js
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Home from './components/Home';
@@ -98,6 +98,15 @@ import './App.css';
 
 function App() {
     const [cartItems, setCartItems] = useState([]);
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        // Загрузка данных о продуктах
+        fetch('http://localhost:5500/api/products')
+            .then((response) => response.json())
+            .then((data) => setProducts(data))
+            .catch((error) => console.error('Error fetching products:', error));
+    }, []);
 
     const addToCart = (item) => {
         setCartItems((prevItems) => {
@@ -156,7 +165,7 @@ function App() {
                     )}
                 </Route>
                 <Route path="/product/:productId">
-                    <ProductDetails  addToCart={addToCart} />
+                    <ProductDetails  products={products}  addToCart={addToCart} />
                     {/*<ProductDetails products={products} addToCart={addToCart} />*/}
                 </Route>
                 {/* TODO: Add more routes here */}
