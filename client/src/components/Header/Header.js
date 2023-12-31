@@ -63,8 +63,8 @@ import './Header.css';
 const Header = () => {
     return (
         <div className="header">
-            <div className="logo">
-                <Link to="/">MyStore</Link>
+            <div >
+                <Link className="logo" to="/">MyStore</Link>
             </div>
             <div className="contact-info">
                 <div className="social-icons">
@@ -74,8 +74,8 @@ const Header = () => {
                     </a>
                     </div>
                     <div className="contact-item">
-                    <a className="icon"  href="https://www.tiktok.com/" target="_blank">
-                        <img src={tik} alt="tiktok Icon" />
+                    <a  href="https://www.tiktok.com/" target="_blank">
+                        <img className="icon" src={tik} alt="tiktok Icon" />
                     </a>
                     </div>
                 </div>
@@ -91,8 +91,8 @@ const Header = () => {
                         </a>
                     </div>
                     <div className="contact-item">
-                        <a className="icon"  href="https://web.telegram.org/" target="_blank">
-                            <img src={tel} alt="telegram Icon" />
+                        <a href="https://web.telegram.org/" target="_blank">
+                            <img className="icon" src={tel} alt="telegram Icon" />
                         </a>
 
                 </div>
