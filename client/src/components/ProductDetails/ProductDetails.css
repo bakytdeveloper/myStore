@@ -108,9 +108,141 @@
 
 
 
+/*!* client/src/components/ProductDetails/ProductDetails.css *!*/
+/*.product-details {*/
+/*    max-width: 95%;*/
+/*    !*max-width: 800px;*!*/
+/*    margin: 0 auto;*/
+/*    padding: 20px;*/
+/*    border: 1px solid #ddd; !* Добавлен для наглядности границы компонента *!*/
+/*    border-radius: 8px;*/
+/*}*/
+
+/*.product-header {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.product-title h2,*/
+/*.product-title h3 {*/
+/*    margin: 0;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.close-button {*/
+/*    background: none;*/
+/*    border: none;*/
+/*    font-size: 20px;*/
+/*    cursor: pointer;*/
+/*    color: #3498db; !* Изменен цвет кнопки *!*/
+/*}*/
+
+/*.product-content {*/
+/*    display: flex;*/
+/*    margin-top: 20px;*/
+/*}*/
+
+/*.product-images {*/
+/*    display: flex;*/
+/*    flex-direction: column; !* При адаптации размещаем картинки в столбец *!*/
+
+/*}*/
+
+/*.thumbnails {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: flex-start;*/
+/*}*/
+
+/*.thumbnail {*/
+/*    width: 60px;*/
+/*    height: 60px;*/
+/*    margin-bottom: 10px;*/
+/*    cursor: pointer;*/
+/*    border: 1px solid #ddd; !* Добавлены границы для наглядности *!*/
+/*    border-radius: 4px;*/
+/*    transition: border-color 0.3s ease; !* Плавное изменение цвета границы *!*/
+/*}*/
+
+/*.thumbnail.active {*/
+/*    border: 2px solid #3498db;*/
+/*}*/
+
+/*.main-image img {*/
+/*    max-width: 350px;*/
+/*    max-height: 350px;*/
+/*    border: 1px solid #ddd; !* Добавлены границы для наглядности *!*/
+/*    border-radius: 4px;*/
+/*    margin-left: 20px;*/
+/*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); !* Добавлен тень для эффекта поднятия изображения *!*/
+/*}*/
+
+/*.product-info {*/
+/*    margin-left: 20px;*/
+/*}*/
+
+/*.description-box h4 {*/
+/*    margin-top: 0;*/
+/*    color: #3498db; !* Изменен цвет заголовка *!*/
+/*}*/
+
+/*.product-features {*/
+/*    margin-top: 20px;*/
+/*}*/
+
+/*.product-features p {*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*.product-actions {*/
+/*    margin-top: 20px;*/
+/*    display: flex;*/
+/*    gap: 10px;*/
+/*}*/
+
+/*.add-to-cart-button,*/
+/*.buy-now-button {*/
+/*    background-color: #3498db;*/
+/*    color: #fff;*/
+/*    border: none;*/
+/*    padding: 10px 20px;*/
+/*    cursor: pointer;*/
+/*    border-radius: 4px;*/
+/*}*/
+
+/*.buy-now-button {*/
+/*    background-color: #27ae60; !* Изменен цвет кнопки "Купить сейчас" *!*/
+/*}*/
+
+/*@media (max-width: 600px) {*/
+/*    .product-content {*/
+/*        flex-direction: column; !* Переставляем основной контент над изображениями *!*/
+/*        text-align: center;*/
+
+/*    }*/
+
+/*    .thumbnails {*/
+/*        flex-direction: row;*/
+/*        gap: 10px;*/
+/*        justify-content: center; !* Выравниваем маленькие картинки по центру *!*/
+/*    }*/
+
+/*    .main-image img {*/
+/*        max-width: 100%;*/
+/*        max-height: 200px;*/
+/*        margin-bottom: 20px; !* Добавляем отступ между основным изображением и маленькими *!*/
+/*    }*/
+/*}*/
+
+
+
+
+
+
 /* client/src/components/ProductDetails/ProductDetails.css */
 .product-details {
-    max-width: 800px;
+    max-width: 90%;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ddd; /* Добавлен для наглядности границы компонента */
@@ -139,12 +271,14 @@
 .product-content {
     display: flex;
     margin-top: 20px;
+    align-items: flex-start; /* Начало выравнивания элементов на одном уровне */
 }
 
 .product-images {
     display: flex;
-    flex-direction: column; /* При адаптации размещаем картинки в столбец */
-
+    align-items: flex-start; /* Выравниваем элементы по верхнему краю */
+    flex-direction: column;
+    margin-right: 20px; /* Добавлен отступ справа между маленькими картинками и описанием */
 }
 
 .thumbnails {
@@ -172,12 +306,13 @@
     max-height: 350px;
     border: 1px solid #ddd; /* Добавлены границы для наглядности */
     border-radius: 4px;
-    margin-left: 20px;
+    margin-right: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Добавлен тень для эффекта поднятия изображения */
 }
 
 .product-info {
     margin-left: 20px;
+    flex: 1; /* Занимаем все доступное пространство, чтобы выровнять по высоте с главным изображением */
 }
 
 .description-box h4 {
@@ -194,9 +329,9 @@
 }
 
 .product-actions {
-    margin-top: 20px;
     display: flex;
-    gap: 10px;
+    flex-direction: column; /* При адаптации кнопки располагаются в колонку */
+    margin-top: 20px;
 }
 
 .add-to-cart-button,
@@ -217,7 +352,10 @@
     .product-content {
         flex-direction: column; /* Переставляем основной контент над изображениями */
         text-align: center;
+    }
 
+    .product-images {
+        margin-right: 0; /* Убираем отступ при адаптации */
     }
 
     .thumbnails {
@@ -232,6 +370,8 @@
         margin-bottom: 20px; /* Добавляем отступ между основным изображением и маленькими */
     }
 }
+
+
 
 
 
