@@ -51,7 +51,7 @@
 
 
 // Компонент Header
-import React from 'react';
+import React, {useState} from 'react';
 import {FaWhatsapp, FaPhone, FaInstagram, FaTelegram, FaUser, FaShoppingCart, FaTiktok} from 'react-icons/fa';
 import ins from "./instagram.png";
 import tel from "./telegram.png";
@@ -60,7 +60,22 @@ import tik from "./tik-tok.png";
 import { Link } from 'react-router-dom';
 import './Header.css';
 
-const Header = () => {
+const Header = ({ products, setFilteredProducts }) => {
+
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleSearch = (event) => {
+        const searchText = event.target.value.toLowerCase();
+        setSearchTerm(searchText);
+
+        const filtered = products.filter(
+            (product) =>
+                product.name.toLowerCase().includes(searchText) ||
+                product.brand.toLowerCase().includes(searchText)
+        );
+        setFilteredProducts(filtered);
+    };
+
     return (
         <div className="header">
             <div >
@@ -107,7 +122,12 @@ const Header = () => {
                 </Link>
             </div>
             <div className="search-bar">
-                <input type="text" placeholder="Search" />
+                <input
+                    type="text"
+                    placeholder="Search"
+                    value={searchTerm}
+                    onChange={handleSearch}
+                />
             </div>
         </div>
 
